@@ -1,0 +1,51 @@
+<div>
+  <form #ClienteCrearForm="ngForm">
+    <div class="my-2">
+      <label for="idCliente">Id Cliente: </label>
+      <input 
+        type="text" 
+        name="idCliente"
+        [(ngModel)]="idCliente"
+        required/>
+    </div>
+  </form>
+  <div class="consultar">
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="getCliente()"
+      [disabled]="!ClienteCrearForm.form.valid"
+    >
+      Consultar Cliente
+    </button>
+  </div>
+</div>
+<!-- <div>
+    <form #ClienteCrearForm="ngForm">
+      <div class="my-2">
+        <label for="idCliente">Id del Cliente: </label>
+        <input
+          type="text"
+          name="idCliente"
+          #idCliente="ngModel"
+          minlength="3"
+          required
+        />
+        <div class="alert alert-danger" *ngIf="idCliente.invalid && (idCliente.dirty || idCliente.touched)" >
+          <div *ngIf="idCliente.errors.required">Revise su informacion</div> 
+          <div *ngIf="idCliente.errors.minlength">Error: debe ser > 2 caracteres</div>
+        </div>
+      </div>
+    </form>
+  
+    <div class="crear">
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="getCliente()"
+        [disabled]="!ClienteCrearForm.form.valid"
+      >
+        Crear Cliente
+      </button>
+    </div>
+</div> -->

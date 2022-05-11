@@ -1,0 +1,21 @@
+<div>
+    <form [formGroup] = "formulario" *ngIf="formulario">
+        <div class="my-2">
+            <label for="nombre">Nombre</label>
+            <input formControlName="nombre" type="text" name="nombre" (ngModelChange)="capturarDato()">
+            <div class="alert alert-danger" *ngIf="formulario.get('nombre').invalid && (formulario.get('nombre').dirty || formulario.get('nombre').touched)" >
+                <div *ngIf="formulario.get('nombre').errors.required">El nombre no debe ser nulo</div>
+                <div *ngIf="formulario.get('nombre').errors.minlength">El nombre debe ser mayor a 4 caracteres</div>
+            </div>
+        </div>
+        <div class="my-2">
+            <label for="apellido">Apellido</label>
+            <input formControlName="apellido" type="text" name="apellido" [readonly]="apellidoLeido">
+        </div>
+        <div class="my-2">
+            <label for="email">email</label>
+            <input formControlName="email" type="text" name="email">
+        </div>
+    </form>
+    <button class="btn btn-primary" (click)="capturar()" [disabled] = "!formulario.valid">enviar</button>
+</div>

@@ -25,3 +25,12 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+##  Steps for run project
+1. delete package.lock.json
+2. delete node_modules
+3. run the follow commands 
+    * npm cache clean --force
+    * npm i -g npm-check-updates
+    * ncu -u
+    * npm install

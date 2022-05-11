@@ -1,0 +1,13 @@
+
+<div class="container text-center" style="padding-top: 50px;">
+    <button type="button" class="btn btn-primary" (click)="setMostrar()">
+        {{ mostrar == true ? 'Ocultar' : 'Mostrar'}}
+    </button>
+
+    <div class="container contenedorCursos" *ngIf="mostrar">
+        <ol class="list-group cursitos" *ngFor = "let curso of listadoCursos; let i = index">
+            <li class="list-group-item">{{i+1}} - {{curso.nombre}}</li>
+        </ol>
+    </div>
+
+</div>

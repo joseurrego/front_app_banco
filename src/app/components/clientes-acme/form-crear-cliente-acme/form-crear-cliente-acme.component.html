@@ -1,0 +1,83 @@
+<div class="text-center">
+  <h1>Creación</h1>
+</div>
+<br>
+<div class="row align-items-center">
+  <div class="col text-center" >
+    <form #ClienteForm="ngForm">
+      <div class="my-2">
+        <label for="tipoIdentificacion">Tipo de Identificacion: </label>
+        <input
+          type="text"
+          name="tipoIdentificacion"
+          #tipoIdentificacion="ngModel"
+          maxlength="2"
+          [(ngModel)]="cliente.tipoIdentificacion"
+          required
+        />
+        <div class="alert alert-danger" *ngIf="tipoIdentificacion.invalid && (tipoIdentificacion.dirty || tipoIdentificacion.touched)" >
+          <div *ngIf="tipoIdentificacion.errors.required">Revise su informacion</div> 
+          <div *ngIf="tipoIdentificacion.errors.maxlength">Error: maximo 2 caracteres</div>
+        </div>
+      </div>
+  
+      <div class="my-2">
+        <label for="numeroIdentificacion">Numero de Identificacion: </label>
+        <input
+          type="text"
+          name="numeroIdentificacion"
+          #numeroIdentificacion="ngModel"
+          maxlength="20"
+          [(ngModel)]="cliente.numeroIdentificacion"
+          required
+        />
+        <div class="alert alert-danger" *ngIf="numeroIdentificacion.invalid && (numeroIdentificacion.dirty || numeroIdentificacion.touched)" >
+          <div *ngIf="numeroIdentificacion.errors.required">Revise su informacion</div> 
+          <div *ngIf="numeroIdentificacion.errors.maxlength">Error: maximo 2 caracteres</div>
+        </div>
+      </div>
+  
+      <div class="my-2">
+        <label for="nombreCompleto">Nombre Completo: </label>
+        <input
+          type="text"
+          name="nombreCompleto"
+          #nombreCompleto="ngModel"
+          minlength="3"
+          [(ngModel)]="cliente.nombreCompleto"
+          required
+        />
+        <div class="alert alert-danger" *ngIf="nombreCompleto.invalid && (nombreCompleto.dirty || nombreCompleto.touched)" >
+          <div *ngIf="nombreCompleto.errors.required">Revise su informacion</div> 
+          <div *ngIf="nombreCompleto.errors.minlength">Error: debe ser > 2 caracteres</div>
+        </div>
+      </div>
+  
+      <div class="my-2">
+        <label for="fechaNacimiento">Fecha Nacimiento: </label>
+        <input
+          type="date"
+          value="2022-04-01"
+          #fechaNacimiento="ngModel"
+          name="fechaNacimiento"
+          [(ngModel)]="cliente.fechaNacimiento"
+          required
+        />
+        <div class="alert alert-danger" *ngIf="fechaNacimiento.invalid && (fechaNacimiento.dirty || fechaNacimiento.touched)">
+          <div *ngIf="fechaNacimiento.errors.required">Revise su informacion</div> 
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="crear col text-center">
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="crearCliente()"
+      [disabled]="!ClienteForm.form.valid"
+    >
+      Crear Cliente
+    </button>
+  </div>
+</div>
